@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rocha Chueirí — Academia Arcana</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=MedievalSharp&family=Uncial+Antiqua&display=swap');
+
+:root{
+  --gold:#c89b3c;
+  --gold2:#f0d083;
+  --brown:#3a2114;
+  --dark:#120c08;
+  --paper:#ead6a8;
+  --paper2:#d7bd83;
+  --red:#701c18;
+  --green:#315329;
+  --shadow:rgba(0,0,0,.65);
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  color:#29180e;
+  font-family:'Cinzel',serif;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.12),transparent 25%),
+    linear-gradient(rgba(20,10,4,.2),rgba(20,10,4,.4)),
+    #17100b;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.13;
+  background-image:
+    repeating-linear-gradient(0deg,transparent 0 3px,#000 4px),
+    repeating-linear-gradient(90deg,transparent 0 5px,#fff 6px);
+  mix-blend-mode:overlay;
+  z-index:99;
+}
+
+/* =========================
+   MENU
+========================= */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:50;
+  padding:14px 25px;
+  background:rgba(14,8,5,.94);
+  border-bottom:2px solid var(--gold);
+  box-shadow:0 5px 25px #000;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+}
+
+nav a{
+  color:#e8cc8b;
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:2px;
+  transition:.25s;
+}
+
+nav a:hover{
+  color:white;
+  text-shadow:0 0 10px var(--gold);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(rgba(15,7,3,.45),rgba(15,7,3,.88)),
+    url("intro-1024.jpg") center/cover;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle,transparent 20%,rgba(0,0,0,.72) 100%);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  padding:30px;
+  animation:fadeIn 1.5s ease;
+}
+
+.crest{
+  font-size:70px;
+  filter:drop-shadow(0 4px 5px #000);
+}
+
+.hero h1{
+  margin:5px 0;
+  font-family:'Uncial Antiqua',serif;
+  font-size:clamp(38px,8vw,85px);
+  color:#e5c77c;
+  text-shadow:
+    3px 3px 0 #211006,
+    0 0 25px #000;
+}
+
+.subtitle{
+  color:#f0dfb0;
+  font-size:18px;
+  letter-spacing:5px;
+}
+
+.hero p{
+  color:#eee0bd;
+  max-width:650px;
+  margin:25px auto;
+  line-height:1.8;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  margin:8px;
+  color:#201108;
+  background:linear-gradient(#f0d184,#b27d25);
+  border:2px solid #6b4517;
+  box-shadow:inset 0 0 0 2px #e8c66c,0 5px 15px #000;
+  font-family:'Cinzel';
+  font-weight:bold;
+  text-decoration:none;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  filter:brightness(1.15);
+}
+
+/* =========================
+   PAPEL
+========================= */
+
+.paper{
+  position:relative;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(90,50,15,.12),transparent 30%),
+    radial-gradient(circle at 90% 80%,rgba(90,50,15,.13),transparent 30%),
+    repeating-linear-gradient(0deg,rgba(90,50,15,.035) 0 1px,transparent 1px 5px),
+    var(--paper);
+  padding:90px 7%;
+}
+
+.paper:before,
+.paper:after{
+  content:"";
+  display:block;
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--brown),var(--gold),var(--brown),transparent);
+  margin-bottom:60px;
+}
+
+.paper:after{
+  margin-top:60px;
+  margin-bottom:0;
+}
+
+.section-title{
+  text-align:center;
+  font-family:'Uncial Antiqua';
+  font-size:38px;
+  color:#4a2918;
+  margin-bottom:12px;
+}
+
+.section-sub{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 45px;
+  line-height:1.8;
+}
+
+/* =========================
+   PREFÁCIO
+========================= */
+
+.prefacio{
+  max-width:1000px;
+  margin:auto;
+}
+
+.prefacio-grid{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:45px;
+  align-items:center;
+}
+
+.prefacio img{
+  width:100%;
+  max-height:470px;
+  object-fit:cover;
+  border:12px solid #321d10;
+  box-shadow:0 12px 30px rgba(0,0,0,.45);
+  filter:sepia(.35);
+}
+
+.prefacio-text{
+  font-size:16px;
+  line-height:1.9;
+}
+
+.dropcap:first-letter{
+  font-family:'Uncial Antiqua';
+  float:left;
+  font-size:65px;
+  line-height:.8;
+  padding-right:8px;
+  color:#781c17;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.card{
+  background:
+    linear-gradient(rgba(255,255,255,.15),transparent),
+    #cdb27a;
+  border:2px solid #68411d;
+  padding:25px;
+  box-shadow:
+    0 8px 15px rgba(0,0,0,.28),
+    inset 0 0 25px rgba(75,35,5,.2);
+  transition:.3s;
+  position:relative;
+}
+
+.card:hover{
+  transform:translateY(-7px) rotate(-.5deg);
+  box-shadow:0 15px 25px rgba(0,0,0,.4);
+}
+
+.card:before{
+  content:"✦";
+  position:absolute;
+  top:8px;
+  right:12px;
+  color:#8d5c20;
+}
+
+.card-icon{
+  font-size:45px;
+  text-align:center;
+}
+
+.card h3{
+  text-align:center;
+  color:#4d2817;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+  max-width:1000px;
+  margin:auto;
+  background:#24140d;
+  color:#ead39a;
+  border:3px solid #8b672d;
+  padding:30px;
+  box-shadow:0 10px 25px #000;
+}
+
+.player{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.avatar{
+  width:100px;
+  height:100px;
+  border:3px solid var(--gold);
+  background:#120b07;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:50px;
+}
+
+.stats{
+  flex:1;
+  min-width:230px;
+}
+
+.stat{
+  margin:12px 0;
+}
+
+.bar{
+  height:15px;
+  background:#090604;
+  border:1px solid #a98440;
+}
+
+.fill{
+  height:100%;
+  transition:1s;
+}
+
+.xp{background:#b88627;width:67%}
+.hp{background:#8e2922;width:82%}
+.mana{background:#315f86;width:54%}
+
+/* =========================
+   QUESTS
+========================= */
+
+.quest{
+  display:flex;
+  gap:15px;
+  align-items:center;
+  border-bottom:1px solid rgba(70,40,10,.3);
+  padding:17px 0;
+}
+
+.quest:last-child{border:0}
+
+.quest-icon{
+  font-size:28px;
+}
+
+.quest strong{
+  display:block;
+}
+
+.badge{
+  margin-left:auto;
+  background:#5c1d17;
+  color:#e9c776;
+  padding:6px 10px;
+  font-size:11px;
+}
+
+/* =========================
+   BESTIÁRIO
+========================= */
+
+.creature{
+  text-align:center;
+}
+
+.creature .monster{
+  font-size:75px;
+  filter:drop-shadow(0 5px 4px rgba(0,0,0,.4));
+}
+
+.danger{
+  color:#761b17;
+  font-weight:bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#0e0805;
+  color:#c6a964;
+  text-align:center;
+  padding:45px 20px;
+  border-top:2px solid var(--gold);
+}
+
+footer h2{
+  font-family:'Uncial Antiqua';
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(0,0,0,.82);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.open{display:flex}
+
+.modal-box{
+  width:min(600px,100%);
+  background:#dec58e;
+  border:5px solid #533017;
+  padding:35px;
+  box-shadow:0 20px 60px #000;
+}
+
+.modal-box h2{
+  font-family:'Uncial Antiqua';
+}
+
+input,select{
+  width:100%;
+  padding:13px;
+  margin:7px 0 15px;
+  background:#f0dfb3;
+  border:2px solid #765024;
+  font-family:'Cinzel';
+}
+
+.close{
+  float:right;
+  cursor:pointer;
+  font-size:25px;
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:none}
+}
+
+@keyframes flicker{
+  0%,100%{opacity:1}
+  50%{opacity:.88}
+}
+
+.torch{
+  animation:flicker 1.5s infinite;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+  nav{
+    gap:10px;
+    padding:12px 7px;
+    overflow-x:auto;
+    justify-content:flex-start;
+  }
+
+  nav a{
+    font-size:10px;
+    white-space:nowrap;
+  }
+
+  .prefacio-grid{
+    grid-template-columns:1fr;
+  }
+
+  .paper{
+    padding:65px 5%;
+  }
+
+  .section-title{
+    font-size:29px;
+  }
+
+  .hero{
+    min-height:90vh;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<nav>
+  <a href="#inicio">INÍCIO</a>
+  <a href="#prefacio">PREFÁCIO</a>
+  <a href="#academia">ACADEMIA</a>
+  <a href="#personagem">PERSONAGEM</a>
+  <a href="#missoes">MISSÕES</a>
+  <a href="#bestiario">BESTIÁRIO</a>
+  <a href="#competicao">COMPETIÇÃO</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-content">
+
+    <div class="crest torch">🧙</div>
+
+    <h1>Rocha Chueirí</h1>
+
+    <div class="subtitle">
+      ACADEMIA ARCANA
+    </div>
+
+    <p>
+      Entre nas antigas Montanhas Nebulosas.
+      Aprenda magia, enfrente criaturas lendárias
+      e prove seu valor na maior competição mágica
+      do reino.
+    </p>
+
+    <a class="btn" href="#prefacio">📜 Abrir o Grimório</a>
+    <a class="btn" href="#personagem">⚔ Criar Personagem</a>
+
+  </div>
+</section>
+
+
+<!-- PREFÁCIO -->
+<section class="paper" id="prefacio">
+
+  <div class="prefacio">
+
+    <h2 class="section-title">✦ Prefácio ✦</h2>
+
+    <p class="section-sub">
+      As páginas deste grimório guardam os segredos da
+      Rocha Chueirí. Poucos recebem o chamado.
+      Menos ainda chegam ao fim.
+    </p>
+
+    <div class="prefacio-grid">
+
+      <img src="intro-1024.jpg" alt="Prefácio da Rocha Chueirí">
+
+      <div class="prefacio-text">
+
+        <p class="dropcap">
+          A Rocha Chueirí é uma escola mágica ancestral,
+          escondida entre as Montanhas Nebulosas, onde jovens
+          de diversas raças aprendem magia ao lado de criaturas
+          mágicas como grifos, fênix e dragões.
+        </p>
+
+        <p>
+          As turmas se preparam para a Competição Anual,
+          organizada pelo Arquimago Professor, onde cada equipe
+          enfrentará desafios mágicos em busca da vitória.
+        </p>
+
+        <p>
+          A rivalidade está acirrada, e apenas as famílias mais
+          habilidosas e unidas conquistarão o troféu.
+          A disputa promete revelar não apenas talento,
+          mas também segredos ocultos entre os alunos.
+        </p>
+
+        <p>
+          A força de cada aluno é medida por seu nível.
+          Para evoluir é preciso dedicação em duas frentes:
+          o estudo da magia e a caça de monstros.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ACADEMIA -->
+<section class="paper" id="academia">
+
+  <h2 class="section-title">🏰 Os Salões da Academia</h2>
+
+  <p class="section-sub">
+    Escolha seu caminho. Estude os antigos conhecimentos,
+    aventure-se pelo mundo e prepare-se para a competição.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <h3>Biblioteca Arcana</h3>
+      <p>
+        Milhares de grimórios guardam conhecimentos sobre
+        feitiços, poções, runas e artes esquecidas.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">⚔️</div>
+      <h3>Arena de Combate</h3>
+      <p>
+        Treine suas habilidades contra outros aprendizes
+        e prepare-se para enfrentar criaturas.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🧪</div>
+      <h3>Laboratório</h3>
+      <p>
+        Prepare poções e descubra combinações capazes de
+        alterar o destino de uma aventura.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🐉</div>
+      <h3>Montanhas Nebulosas</h3>
+      <p>
+        Uma região perigosa onde criaturas ancestrais
+        aguardam aqueles que ousam entrar.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PERSONAGEM -->
+<section class="paper" id="personagem">
+
+  <h2 class="section-title">⚔ Seu Aprendiz</h2>
+
+  <p class="section-sub">
+    Todo grande mago começa como um simples aprendiz.
+    Escolha seu nome e sua linhagem.
+  </p>
+
+  <div class="status">
+
+    <div class="player">
+
+      <div class="avatar" id="avatar">🧙</div>
+
+      <div class="stats">
+
+        <h2 id="playerName">Aprendiz Desconhecido</h2>
+
+        <p>
+          <strong>Linhagem:</strong>
+          <span id="playerRace">Humano</span>
+        </p>
+
+        <p>
+          <strong>Nível:</strong>
+          <span id="level">7</span>
+        </p>
+
+        <div class="stat">
+          EXPERIÊNCIA
+          <div class="bar">
+            <div class="fill xp" id="xpBar"></div>
+          </div>
+        </div>
+
+        <div class="stat">
+          VIDA
+          <div class="bar">
+            <div class="fill hp"></div>
+          </div>
+        </div>
+
+        <div class="stat">
+          MANA
+          <div class="bar">
+            <div class="fill mana"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <br>
+
+    <button class="btn" onclick="openCharacter()">
+      ✒ Personalizar Aprendiz
+    </button>
+
+    <button class="btn" onclick="gainXP()">
+      ✨ Estudar Magia
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- MISSÕES -->
+<section class="paper" id="missoes">
+
+  <h2 class="section-title">📜 Quadro de Missões</h2>
+
+  <p class="section-sub">
+    O destino dos aprendizes muda a cada missão.
+  </p>
+
+  <div class="status">
+
+    <div class="quest">
+      <div class="quest-icon">🌲</div>
+      <div>
+        <strong>O Bosque das Sombras</strong>
+        Encontrar a origem dos estranhos uivos.
+      </div>
+      <span class="badge">+120 XP</span>
+    </div>
+
+    <div class="quest">
+      <div class="quest-icon">🐺</div>
+      <div>
+        <strong>A Caçada do Lobo Cinzento</strong>
+        Derrotar uma criatura que ameaça os viajantes.
+      </div>
+      <span class="badge">+180 XP</span>
+    </div>
+
+    <div class="quest">
+      <div class="quest-icon">🔥</div>
+      <div>
+        <strong>A Lágrima da Fênix</strong>
+        Recuperar um artefato perdido.
+      </div>
+      <span class="badge">+350 XP</span>
+    </div>
+
+    <div class="quest">
+      <div class="quest-icon">🐉</div>
+      <div>
+        <strong>O Dragão da Montanha</strong>
+        Uma missão reservada aos aprendizes mais poderosos.
+      </div>
+      <span class="badge">+1000 XP</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BESTIÁRIO -->
+<section class="paper" id="bestiario">
+
+  <h2 class="section-title">🐉 Bestiário</h2>
+
+  <p class="section-sub">
+    Conheça algumas das criaturas que habitam as terras
+    próximas à Rocha Chueirí.
+  </p>
+
+  <div class="grid">
+
+    <div class="card creature">
+      <div class="monster">🐺</div>
+      <h3>Lobo Sombrio</h3>
+      <p>Uma fera veloz que caça em grupos.</p>
+      <p class="danger">Perigo: ★★☆☆☆</p>
+    </div>
+
+    <div class="card creature">
+      <div class="monster">🦅</div>
+      <h3>Grifo</h3>
+      <p>Guardião das montanhas e dos antigos tesouros.</p>
+      <p class="danger">Perigo: ★★★☆☆</p>
+    </div>
+
+    <div class="card creature">
+      <div class="monster">🔥</div>
+      <h3>Fênix</h3>
+      <p>Uma criatura lendária capaz de renascer das cinzas.</p>
+      <p class="danger">Perigo: ★★★★☆</p>
+    </div>
+
+    <div class="card creature">
+      <div class="monster">🐲</div>
+      <h3>Dragão Ancestral</h3>
+      <p>Uma criatura cuja magia rivaliza com a dos arquimagos.</p>
+      <p class="danger">Perigo: ★★★★★</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- COMPETIÇÃO -->
+<section class="paper" id="competicao">
+
+  <h2 class="section-title">🏆 A Grande Competição</h2>
+
+  <p class="section-sub">
+    Apenas uma família poderá conquistar o Troféu da Rocha.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-icon">🦁</div>
+      <h3>Casa do Leão</h3>
+      <p>Especialistas em coragem e combate.</p>
+      <strong>1.840 pontos</strong>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🦉</div>
+      <h3>Casa da Coruja</h3>
+      <p>Mestres do conhecimento e da magia.</p>
+      <strong>1.720 pontos</strong>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🐍</div>
+      <h3>Casa da Serpente</h3>
+      <p>Astutos, estratégicos e misteriosos.</p>
+      <strong>1.690 pontos</strong>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🐺</div>
+      <h3>Casa do Lobo</h3>
+      <p>Unidos pela lealdade e pela força.</p>
+      <strong>1.530 pontos</strong>
+    </div>
+
+  </div>
+
+  <br><br>
+
+  <div style="text-align:center">
+    <button class="btn" onclick="startCompetition()">
+      🏆 Participar da Competição
+    </button>
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <h2>⚜ ROCHA CHUEIRÍ ⚜</h2>
+
+  <p>
+    Academia Arcana das Montanhas Nebulosas
+  </p>
+
+  <p>
+    "A magia escolhe seus próprios heróis."
+  </p>
+
+  <small>
+    © 2026 — Grimório da Rocha Chueirí
+  </small>
+
+</footer>
+
+
+<!-- MODAL PERSONAGEM -->
+<div class="modal" id="characterModal">
+
+  <div class="modal-box">
+
+    <span class="close" onclick="closeCharacter()">✕</span>
+
+    <h2>✒ Criar Aprendiz</h2>
+
+    <label>Nome do personagem</label>
+    <input id="nameInput" placeholder="Digite o nome...">
+
+    <label>Linhagem</label>
+
+    <select id="raceInput">
+      <option>Humano</option>
+      <option>Elfo</option>
+      <option>Anão</option>
+      <option>Draconato</option>
+      <option>Feérico</option>
+      <option>Meio-Gigante</option>
+    </select>
+
+    <label>Classe</label>
+
+    <select id="classInput">
+      <option>Mago</option>
+      <option>Guerreiro</option>
+      <option>Arqueiro</option>
+      <option>Alquimista</option>
+      <option>Invocador</option>
+    </select>
+
+    <button class="btn" onclick="saveCharacter()">
+      ⚔ Entrar na Academia
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   PERSONAGEM
+========================= */
+
+let xp = 67;
+let level = 7;
+
+function openCharacter(){
+  document.getElementById("characterModal").classList.add("open");
+}
+
+function closeCharacter(){
+  document.getElementById("characterModal").classList.remove("open");
+}
+
+function saveCharacter(){
+
+  const name =
+    document.getElementById("nameInput").value.trim()
+    || "Aprendiz Desconhecido";
+
+  const race =
+    document.getElementById("raceInput").value;
+
+  const classe =
+    document.getElementById("classInput").value;
+
+  document.getElementById("playerName").textContent =
+    name + " — " + classe;
+
+  document.getElementById("playerRace").textContent =
+    race;
+
+  closeCharacter();
+
+  alert(
+    "⚔ " + name +
+    " entrou oficialmente na Academia Rocha Chueirí!"
+  );
+}
+
+
+/* =========================
+   XP
+========================= */
+
+function gainXP(){
+
+  xp += 12;
+
+  if(xp >= 100){
+    xp = xp - 100;
+    level++;
+
+    document.getElementById("level").textContent = level;
+
+    alert(
+      "✨ SUBIU DE NÍVEL!\n\n" +
+      "Você alcançou o nível " + level + "!"
+    );
+  }
+
+  document.getElementById("xpBar").style.width = xp + "%";
+}
+
+
+/* =========================
+   COMPETIÇÃO
+========================= */
+
+function startCompetition(){
+
+  const confirmacao =
+    confirm(
+      "🏆 A Grande Competição começará!\n\n" +
+      "Você está preparado para representar sua família?"
+    );
+
+  if(confirmacao){
+
+    alert(
+      "⚔️ O desafio foi aceito!\n\n" +
+      "Prepare seus feitiços, reúna sua equipe " +
+      "e enfrente as criaturas das Montanhas Nebulosas!"
+    );
+
+  }
+
+}
+
+
+/* =========================
+   FECHAR MODAL
+========================= */
+
+window.onclick = function(event){
+
+  const modal =
+    document.getElementById("characterModal");
+
+  if(event.target === modal){
+    closeCharacter();
+  }
+
+};
+
+</script>
+
+</body>
+</html>
